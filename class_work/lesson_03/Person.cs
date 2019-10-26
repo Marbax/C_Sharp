@@ -29,15 +29,24 @@ namespace lesson_03
         //public string GetName() => _name; // getter в одну строку
         //public void SetName(string _name) => this._name = _name; // присвоение значения в одну строку 
 
-        public Person() : this("NONAME", DateTime.Now)// делегирование своему констроктору (текущее время ,до секунды)
+        static Person()
         {
-
+            Console.WriteLine("Static constructor"); // непонятно когда вызывается ,знает только CLR (где то перед созданием класса)
+            _counter = 0;
         }
+
+        public Person() : this("NONAME", DateTime.Now) // делегирование своему констроктору (текущее время ,до секунды)
+        {      }
         public Person(string _name, DateTime birthday)
         {
-            this._name = _name;// ссылка присваевается ссылке из вне она не поменяется ,т.к. строки неизменны
+            this._name = _name; // ссылка присваевается ссылке из вне она не поменяется ,т.к. строки неизменны
             _birthday = birthday;
             _counter++;
+        }
+
+        public static void Swap(ref int a ,ref int b)
+        {
+            (a, b) = (b,a);
         }
 
         public override string ToString()
