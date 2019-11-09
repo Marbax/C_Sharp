@@ -421,7 +421,8 @@ public override bool Equals(object obj)
 
 <details><summary> 5.Overloads  </summary><p>
 
-[overloads](class_work\lesson_05\overloads "class_work\lesson_05\overloads")
+[overloads](https://github.com/Marbax/C_Sharp/class_work/lesson_05/overloads "class_work\lesson_05\overloads")
+[overloads](/class_work/lesson_05/overloads "class_work\lesson_05\overloads")
 
 ### Операторы ,которые нельзя перегружать:
 - ***?:*** - тернарный
