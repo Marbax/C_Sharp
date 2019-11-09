@@ -418,3 +418,45 @@ public override bool Equals(object obj)
 </p></details>
 
 
+
+<details><summary> 5.Overloads  </summary><p>
+
+[overloads](class_work\lesson_05\overloads "class_work\lesson_05\overloads")
+
+### Операторы ,которые нельзя перегружать:
+- ***?:*** - тернарный
+- ***.*** - доступа к членам
+- ***=*** - присваивания(да и незачем)
+- ***new*** - выделения памяти ,т.к. всем распределением памяти занят CLR
+- ***as,is,typeof*** - преобразование
+- ***&&*** и ***||*** - сравнения , перегружается косвенно ,после ***&*** и ***|***
+
+
+```if(b!=0 & a%b==0)``` - если b  будет нулем ,вылетит  из за деления на ноль
+>& - накладывает битовые значения , выполняет операции по сторонам ,а потом накладывает   
+
+### Нельзя перегружать операторы в разных классах которые принимают те же параметры , в которых они же учавствуют
+<details><summary> Пример  </summary><p>
+
+- Класс Fraction  
+```C#
+        public static Fraction operator *(Fraction obj, MyNum var)
+        {
+            return new Fraction(obj.Num * var.Num, obj.Denum);
+        }
+
+```
+- Класс MyNum  
+```C#
+        public static MyNum operator *(Fraction obj, MyNum var)
+        {
+            return new MyNum(obj.Num * var.Num / obj.Denum);
+        }
+
+```
+
+</p></details>
+
+</p></details>
+
+
