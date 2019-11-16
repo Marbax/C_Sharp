@@ -22,6 +22,8 @@ namespace inharitance
     base(title, weight, speed, altitude)
         { _passengers = passengers; }
 
+        public void Beeeeep() { Console.WriteLine("Beeep"); }
+
         public override string ToString()
         {
             return base.ToString() +
