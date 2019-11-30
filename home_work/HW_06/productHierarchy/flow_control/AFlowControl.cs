@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace productHierarchy
 {
-    class AFlowControl : IEnumerable, ICloneable
+    abstract class AFlowControl : IEnumerable, ICloneable
     {
         List<AProduct> _array;
         public int Count => _array.Count;
@@ -16,8 +16,12 @@ namespace productHierarchy
         public virtual void Add(AProduct obj) => _array.Add(obj);
         public virtual void AddRange(params AProduct[] obj_array) => _array.AddRange(obj_array.ToList<AProduct>());
         public virtual void RemoveAt(int index) => _array.RemoveAt(index);
-        //public virtual bool Remove(AProduct obj) => _array.Remove(obj);
+        public virtual bool Remove(AProduct obj) => _array.Remove(obj);
 
+        public virtual bool Contains(AProduct obj)
+        {
+            return _array.Contains(obj);
+        }
         public AFlowControl(params AProduct[] array)
         {
             _array = array.ToList<AProduct>();

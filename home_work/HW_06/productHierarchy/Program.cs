@@ -22,7 +22,7 @@ namespace productHierarchy
             - Легковоспламеняющиеся товары; 
             - Бьющиеся товары.
          Предусмотреть классы управления потоком товаров (пришло, реализовано, списано, передано). 
-         (ненужно)Реализовать собственные классы исключений: 
+         Реализовать собственные классы исключений: 
             - “Нет в наличии”; 
             - “Истек срок годности”; 
             - “Бракованный товар”. 
@@ -34,17 +34,14 @@ namespace productHierarchy
             AProduct prod1 = (Milk)prod.Clone();
             Console.WriteLine();
             Console.WriteLine();
-            AFlowControl flow = new AFlowControl(prod, prod1, new Milk(name: "V Malako"));
+            AFlowControl flow = new ArrivedGoods(prod, prod1, new Milk(name: "V Malako"), new Rum(), new ToiletPaper());
             flow.Add(new Milk(name: "Sooooevoe"));
 
-            AFlowControl flow1 = (AFlowControl)flow.Clone(); // клонирование листов 
             // изменение нескольких обьектов
             ((Milk)prod).EndDate = new DateTime(1888, 1, 1);
             ((IPerishable)prod1).EndDate = new DateTime(1111, 1, 1);
             prod.Name = "some";
             prod.Value = 1231;
-            flow1.RemoveAt(3);
-
 
             // сравнение
             foreach (var item in flow)
@@ -53,7 +50,10 @@ namespace productHierarchy
                 Console.WriteLine();
             }
             Console.WriteLine("=====================");
-            Console.WriteLine();
+            Console.WriteLine("Trying to sale goods");
+
+            AFlowControl flow1 = new SoldGoods(flow);
+            flow1.AddRange(new Rum(), new ToiletPaper(), flow[0],flow[1],flow[2],flow[3],flow[4]);
             foreach (var item in flow1)
             {
                 Console.WriteLine(item);

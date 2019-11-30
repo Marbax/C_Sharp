@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D973469-7CF6-4B4D-AD2E-B34E53AE5768}</ProjectGuid>
+    <ProjectGuid>{88ED6D94-31FD-4CD2-A9B7-68F795942ABB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>productHierarchy</RootNamespace>
-    <AssemblyName>productHierarchy</AssemblyName>
+    <RootNamespace>formula_one</RootNamespace>
+    <AssemblyName>formula_one</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -22,7 +22,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,28 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="flow_control\AFlowControl.cs" />
-    <Compile Include="products\AHouseChemicals.cs" />
-    <Compile Include="products\AirFreshener.cs" />
-    <Compile Include="products\ANutrition.cs" />
-    <Compile Include="products\AProduct.cs" />
-    <Compile Include="exceptions\DefectiveGoods.cs" />
-    <Compile Include="flow_control\ArrivedGoods.cs" />
-    <Compile Include="flow_control\DecommisionedGoods.cs" />
-    <Compile Include="flow_control\SoldGoods.cs" />
-    <Compile Include="flow_control\TransferredGoods.cs" />
-    <Compile Include="intefaces\IBreakable.cs" />
-    <Compile Include="intefaces\IExcise.cs" />
-    <Compile Include="intefaces\IFillable.cs" />
-    <Compile Include="intefaces\IFlammable.cs" />
-    <Compile Include="intefaces\IPerishable.cs" />
-    <Compile Include="products\Milk.cs" />
-    <Compile Include="exceptions\OutOfDate.cs" />
-    <Compile Include="exceptions\OutOfStock.cs" />
+    <Compile Include="Pilot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="products\Rum.cs" />
-    <Compile Include="products\ToiletPaper.cs" />
+    <Compile Include="Season.cs" />
+    <Compile Include="Team.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
