@@ -511,3 +511,18 @@ public override bool Equals(object obj)
 </p></details>
 
 
+<details><summary> 9.Delegates,events </summary><p>
+
+---
+
+[exceptions example](\class_work\lesson_09\delegate\Program.cs "\class_work\lesson_08\collections\Program.cs")   
+
+---
+
+### HW
+> - На MSDN есть рабочий на 90% пример(для винформс) для property change (просто несколько классов ,необазательно даже взаимодействовать, просто чтобы свойства реализовывали интерфейс)
+> - Массив и предикат
+
+</p></details>
+
+
