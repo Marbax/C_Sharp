@@ -504,7 +504,7 @@ public override bool Equals(object obj)
 
 ---
 
-[exceptions example](\class_work\lesson_08\collections\Program.cs "\class_work\lesson_08\collections\Program.cs")   
+[collections example](\class_work\lesson_08\collections\Program.cs "\class_work\lesson_08\collections\Program.cs")   
 
 ---
 
@@ -515,7 +515,7 @@ public override bool Equals(object obj)
 
 ---
 
-[exceptions example](\class_work\lesson_09\delegate\Program.cs "\class_work\lesson_08\collections\Program.cs")   
+[Delegates example](\class_work\lesson_09\delegate\Program.cs "\class_work\lesson_08\collections\Program.cs")   
 
 ---
 
@@ -526,11 +526,34 @@ public override bool Equals(object obj)
 </p></details>
 
 
-<details><summary> 10. File stream </summary><p>
+<details><summary> 10. File_stream and Regular_expressions </summary><p>
 
 ---
 
-[exceptions example](\class_work\ "\class_work\")   
+[File_stream example](\class_work\lesson_10\stream\Program.cs "\class_work\lesson_10\regExp\Program.cs")   
+[Regular_expressions example](\class_work\lesson_10\regExp\Program.cs "\class_work\lesson_10\regExp\Program.cs")   
+
+---
+
+</p></details>
+
+
+<details><summary> 11. Delegates and XML_parse </summary><p>
+
+---
+
+[Delegates example](\class_work\lesson_11\Delegates1\Program.cs "\class_work\lesson_11\Delegates1\Program.cs")   
+[XML_parse example](\class_work\lesson_11\xml_goodsCatalogue\Program.cs "\class_work\lesson_11\xml_goodsCatalogue\Program.cs")   
+
+---
+
+</p></details>
+
+<details><summary> 12. DLL </summary><p>
+
+---
+
+[DLL example](\class_work\lesson_12\dlls\Program.cs "\class_work\lesson_12\dlls\Program.cs")   
 
 ---
 
