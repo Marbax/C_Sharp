@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<goods>
+  <product id="1" name="Fish" producer="GB" price="345.444" cid="1" />
+  <product id="2" name="Pork" producer="Porker" price="52321.7" cid="1" />
+  <product id="3" name="Milk" producer="Happy farmer" price="123.77" cid="1" />
+  <product id="4" name="Asus 2340" producer="Asus" price="235.45" cid="4" />
+  <product id="5" name="Apple 0x" producer="Apple" price="123.7" cid="4" />
+  <product id="6" name="HP pas10" producer="HP" price="124.4" cid="4" />
+  <product id="7" name="Chair 3 leg" producer="Furniter" price="551.2" cid="3" />
+  <product id="8" name="Bed flying" producer="Furniter" price="233.2" cid="3" />
+  <product id="9" name="Table invisible" producer="Furniter" price="123.3" cid="3" />
+</goods>

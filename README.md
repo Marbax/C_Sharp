@@ -526,3 +526,17 @@ public override bool Equals(object obj)
 </p></details>
 
 
+<details><summary> 10. File stream </summary><p>
+
+---
+
+[exceptions example](\class_work\ "\class_work\")   
+
+---
+
+</p></details>
+
+
+
+
+
