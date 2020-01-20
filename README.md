@@ -560,6 +560,17 @@ public override bool Equals(object obj)
 </p></details>
 
 
+<details><summary> 13. DLL more </summary><p>
+
+---
+
+[DLL example](\class_work\lesson_12\dlls\Program.cs "\class_work\lesson_12\dlls\Program.cs")   
+
+---
+
+</p></details>
+
+
 
 
 

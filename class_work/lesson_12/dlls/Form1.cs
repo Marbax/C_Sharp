@@ -13,41 +13,84 @@ namespace dlls
 {
     public partial class Form1 : Form
     {
-        private void InitializeEmployee()
-        {
-        }
-        private void InitializeDepartments()
-        {
-            List<Department> dep = new List<Department>();
-            dep.Add(new Department { Id = 1, Name = "Developers" });
-            dep.Add(new Department { Id = 2, Name = "Admins" });
-            dep.Add(new Department { Id = 3, Name = "Media" });
-            dep.Add(new Department { Id = 4, Name = "Sails" });
-            dep.Add(new Department { Id = 5, Name = "Partners" });
-            dep.Add(new Department { Id = 6, Name = "Accountant" });
-            dep.Add(new Department { Id = 7, Name = "Storage" });
-            dep.Add(new Department { Id = 8, Name = "Logistic" });
-            dep.Add(new Department { Id = 9, Name = "Managment" });
-
-            dep.ForEach(x => departmentBindingSource.Add(x));
-
-        }
+        private DataManager _dm = new DataManager();
 
         public Form1()
         {
             InitializeComponent();
-            InitializeDepartments();
-            InitializeEmployee();
+            InitDepartments();
+            //Initemployee();
+        }
+
+        private void InitDepartments()
+        {
+            //_dm.Departments.ForEach(x => departmentBindingSource.Add(x));
+
+            _dm.Departments.ForEach(x => comboBoxDep.Items.Add(x));
+            comboBoxDep.DisplayMember = "Name";
+            comboBoxDep.SelectedIndex = 0;
+        }
+
+        private void InitEmployee(int id)
+        {
+            //_dm.Employments.ForEach(x => employeeBindingSource.Add(x));
+
+            _dm.Employments.Where(y => y.DepId == id).ToList().ForEach(x => listBoxEmployee.Items.Add(x.Name));
+            listBoxEmployee.DisplayMember = "Name";
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            var elem = comboBoxDep.SelectedItem as Department;
+            var id = elem.Id;
+
+            listBoxEmployee.Items.Clear();
+            _dm.Employments.Where(y => y.DepId == id).ToList().ForEach(x => listBoxEmployee.Items.Add(x));
+            //_dm.Employments.Where(y => y.DepId == id).ToList();
+            listBoxEmployee.DisplayMember = "Name";
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MinimumSize.Height = Form1.
+            var elem = listBoxEmployee.SelectedItem as Employee;
+            if (elem != null)
+            {
+                var emp_id = elem.Id;
+                //pictureBoxEmpPhoto.Image = Image.FromFile(elem.Photo);
+                pictureBoxEmpPhoto.ImageLocation = elem.Photo;
+                textBoxName.Text = elem.Name;
+                dateTimePickerBirth.Value = elem.Birth;
+                dateTimePickerHire.Value = elem.Entry;
+                textBoxFireDate.Text = elem.Fire;
+                textBoxPosition.Text = elem.Position;
+                textBoxSalary.Text = elem.Salary.ToString();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Initialize succesfull");
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

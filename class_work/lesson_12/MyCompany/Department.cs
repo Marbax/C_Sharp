@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCompany
 {
+    [Serializable]
     public class Department
     {
         public int Id { get; set; }
