@@ -435,7 +435,7 @@ public override bool Equals(object obj)
 
 ---
 
-[overloads](/class_work/lesson_05/overloads "class_work\lesson_05\overloads")
+[overloads](/class_work/lesson_05/overloads "class_work/lesson_05/overloads")
 
 ### Операторы ,которые нельзя перегружать:
 - ***?:*** - тернарный
@@ -482,7 +482,7 @@ public override bool Equals(object obj)
 ---
 
 [interface](/class_work/lesson_06/Interface/MyInterface.cs "/class_work/lesson_06/Interface/MyInterface.cs")   
-[IEnumerable && IComparable](class_work\lesson_06\Interface\FigureSort.cs "class_work\lesson_06\Interface\FigureSort.cs")
+[IEnumerable && IComparable](class_work/lesson_06/Interface/FigureSort.cs "class_work/lesson_06/Interface/FigureSort.cs")
 
 
 ---
@@ -493,7 +493,7 @@ public override bool Equals(object obj)
 
 ---
 
-[exceptions example](/class_work\lesson_07\exceptions\Program.cs "/class_work\lesson_07\exceptions\Program.cs")   
+[exceptions example](/class_work/lesson_07/exceptions/Program.cs "/class_work/lesson_07/exceptions/Program.cs")   
 
 ---
 
@@ -504,7 +504,7 @@ public override bool Equals(object obj)
 
 ---
 
-[collections example](\class_work\lesson_08\collections\Program.cs "\class_work\lesson_08\collections\Program.cs")   
+[collections example](/class_work/lesson_08/collections/Program.cs "/class_work/lesson_08/collections/Program.cs")   
 
 ---
 
@@ -515,7 +515,7 @@ public override bool Equals(object obj)
 
 ---
 
-[Delegates example](\class_work\lesson_09\delegate\Program.cs "\class_work\lesson_08\collections\Program.cs")   
+[Delegates example](/class_work/lesson_09/delegate/Program.cs "/class_work/lesson_08/collections/Program.cs")   
 
 ---
 
@@ -530,8 +530,8 @@ public override bool Equals(object obj)
 
 ---
 
-[File_stream example](\class_work\lesson_10\stream\Program.cs "\class_work\lesson_10\regExp\Program.cs")   
-[Regular_expressions example](\class_work\lesson_10\regExp\Program.cs "\class_work\lesson_10\regExp\Program.cs")   
+[File_stream example](/class_work/lesson_10/stream/Program.cs "/class_work/lesson_10/regExp/Program.cs")   
+[Regular_expressions example](/class_work/lesson_10/regExp/Program.cs "/class_work/lesson_10/regExp/Program.cs")   
 
 ---
 
@@ -542,8 +542,8 @@ public override bool Equals(object obj)
 
 ---
 
-[Delegates example](\class_work\lesson_11\Delegates1\Program.cs "\class_work\lesson_11\Delegates1\Program.cs")   
-[XML_parse example](\class_work\lesson_11\xml_goodsCatalogue\Program.cs "\class_work\lesson_11\xml_goodsCatalogue\Program.cs")   
+[Delegates example](/class_work/lesson_11/Delegates1/Program.cs "/class_work/lesson_11/Delegates1/Program.cs")   
+[XML_parse example](/class_work/lesson_11/xml_goodsCatalogue/Program.cs "/class_work/lesson_11/xml_goodsCatalogue/Program.cs")   
 
 ---
 
@@ -553,7 +553,7 @@ public override bool Equals(object obj)
 
 ---
 
-[DLL example](\class_work\lesson_12\dlls\Program.cs "\class_work\lesson_12\dlls\Program.cs")   
+[DLL example](/class_work/lesson_12/dlls/Program.cs "/class_work/lesson_12/dlls/Program.cs")   
 
 ---
 
@@ -564,7 +564,7 @@ public override bool Equals(object obj)
 
 ---
 
-[DLL example](\class_work\lesson_12\dlls\Program.cs "\class_work\lesson_12\dlls\Program.cs")   
+[DLL example](/class_work/lesson_12/dlls/Program.cs "/class_work/lesson_12/dlls/Program.cs")   
 
 ---
 
