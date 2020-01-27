@@ -553,7 +553,7 @@ public override bool Equals(object obj)
 
 ---
 
-[DLL example](/class_work/lesson_12/dlls/Program.cs "/class_work/lesson_12/dlls/Program.cs")   
+[DLL example](/class_work/lesson_12-13/dlls/Program.cs "/class_work/lesson_12-13/dlls/Program.cs")   
 
 ---
 
@@ -564,7 +564,7 @@ public override bool Equals(object obj)
 
 ---
 
-[DLL example](/class_work/lesson_12/dlls/Program.cs "/class_work/lesson_12/dlls/Program.cs")   
+[DLL example](/class_work/lesson_12-13/dlls/Program.cs "/class_work/lesson_12-13/dlls/Program.cs")   
 
 ---
 
