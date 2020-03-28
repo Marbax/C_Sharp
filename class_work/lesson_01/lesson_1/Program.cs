@@ -100,7 +100,7 @@ namespace lesson_1
         }
         static bool IsPrime(int a )
             {
-                for (int i = 2; i < Math.Sqrt(a); i++)
+                for (int i = 2; i < Math.Sqrt(a);)
                     if (a % i == 0)
                         return false;
                     else
