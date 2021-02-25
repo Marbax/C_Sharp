@@ -41,7 +41,7 @@ namespace HW_01
                 buf = first;
                 first += second;
                 second = buf;
-                            }
+            }
 
             return evens_sum;
         }

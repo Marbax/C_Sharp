@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace overloads
 {
     class Fraction
     {
+        #region Props
+
         private int _num;
 
         public int Num
@@ -24,9 +22,10 @@ namespace overloads
             set { _denum = value; }
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------FIND_DENUM----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
+
+
+        #region Find Denum
 
         private static int Clm(int a, int b) // наименьшее кратное/знаменатель
         {
@@ -36,101 +35,106 @@ namespace overloads
                     return i;
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------MULTY----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
 
-        public static Fraction operator *(Fraction obj_l, Fraction obj_r)
+        #region Multy Overlaod
+
+        public static Fraction operator *(Fraction left, Fraction right)
         {
-            return new Fraction(obj_l.Num * obj_r.Num, obj_l.Denum * obj_r.Denum);
+            return new Fraction(left.Num * right.Num, left.Denum * right.Denum);
         }
 
-        public static Fraction operator *(Fraction obj, int var)
+        public static Fraction operator *(Fraction frac, int number)
         {
-            return new Fraction(obj.Num * var, obj.Denum);
+            return new Fraction(frac.Num * number, frac.Denum);
         }
 
-        public static Fraction operator *(int var, Fraction obj)
+        public static Fraction operator *(int number, Fraction frac)
         {
-            return obj * var;
+            return frac * number;
         }
 
-        public static Fraction operator *(Fraction obj, MyNum var) // у Нама есть такой же пергруз - не гуд
+        public static Fraction operator *(Fraction frac, MyNum myNum) // у Нама есть такой же пергруз - не гуд
         {
-            return new Fraction(obj.Num * var.Num, obj.Denum);
+            return new Fraction(frac.Num * myNum.Num, frac.Denum);
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------SUM----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
 
-        public static Fraction operator +(Fraction obj_l, Fraction obj_r)
+        #region Sum Overload
+
+        public static Fraction operator +(Fraction left, Fraction right)
         {
-            int clm = Clm(obj_l.Denum, obj_r.Denum); // общий заменатель
-            int num_l = obj_l.Num * clm / obj_l.Denum;
-            int num_r = obj_r.Num * clm / obj_r.Denum;
+            int clm = Clm(left.Denum, right.Denum); // общий заменатель
+            int num_l = left.Num * clm / left.Denum;
+            int num_r = right.Num * clm / right.Denum;
             return new Fraction(num_l + num_r, clm);
         }
 
-        public static Fraction operator +(Fraction obj_l, int var)
+        public static Fraction operator +(Fraction left, int number)
         {
-            return obj_l + new Fraction(var, 1);
+            return left + new Fraction(number, 1);
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------INCREMENT----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
 
-        public static Fraction operator ++(Fraction obj)// перегружает и префиксную и постфиксную формы , "обмануть" как в плюсах - нельзя
+        #region Increment Overload
+
+        // перегружает и префиксную и постфиксную формы , "обмануть" как в плюсах - нельзя
+        public static Fraction operator ++(Fraction frac)
         {
-            obj.Num += obj.Denum;
-            return obj;
+            frac.Num += frac.Denum;
+            return frac;
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------LOGIC_OPERATORS----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
 
-        public static Fraction operator !(Fraction obj) // возвращает себя с измененными числителем и знаминателем
+        #region Logic Overloads
+
+        // возвращает себя с измененными числителем и знаминателем
+        public static Fraction operator !(Fraction frac)
         {
-            (obj.Num, obj.Denum) = (obj.Denum, obj.Num);
-            return obj;
+            (frac.Num, frac.Denum) = (frac.Denum, frac.Num);
+            return frac;
         }
 
-        public static bool operator ==(Fraction obj_l, Fraction obj_r) // нужно перегружать в паре с неравно
+        // нужно перегружать в паре с неравно
+        public static bool operator ==(Fraction left, Fraction right)
         {
-            int clm = Clm(obj_l.Denum, obj_r.Denum); // общий заменатель
-            int num_l = obj_l.Num * clm / obj_l.Denum;
-            int num_r = obj_r.Num * clm / obj_r.Denum;
+            // общий заменатель
+            int clm = Clm(left.Denum, right.Denum);
+            int num_l = left.Num * clm / left.Denum;
+            int num_r = right.Num * clm / right.Denum;
             return num_l == num_r;
         }
 
-        public static bool operator !=(Fraction obj_l, Fraction obj_r)
+        public static bool operator !=(Fraction left, Fraction right)
         {
-            return !(obj_l == obj_r);
+            return !(left == right);
         }
 
-        public static bool operator >(Fraction obj_l, Fraction obj_r)
+        public static bool operator >(Fraction left, Fraction right)
         {
-            int clm = Clm(obj_l.Denum, obj_r.Denum); // общий заменатель
-            int num_l = obj_l.Num * clm / obj_l.Denum;
-            int num_r = obj_r.Num * clm / obj_r.Denum;
+            // общий заменатель
+            int clm = Clm(left.Denum, right.Denum);
+            int num_l = left.Num * clm / left.Denum;
+            int num_r = right.Num * clm / right.Denum;
             return num_l > num_r;
         }
 
-        public static bool operator <(Fraction obj_l, Fraction obj_r)
+        public static bool operator <(Fraction left, Fraction right)
         {
-            return !(obj_l > obj_r || obj_l == obj_r);
+            return !(left > right || left == right);
         }
 
-        public static bool operator >=(Fraction obj_l, Fraction obj_r)
+        public static bool operator >=(Fraction left, Fraction right)
         {
-            return obj_l > obj_r || obj_l == obj_r;
+            return left > right || left == right;
         }
 
-        public static bool operator <=(Fraction obj_l, Fraction obj_r)
+        public static bool operator <=(Fraction left, Fraction right)
         {
-            return !(obj_l > obj_r);
+            return !(left > right);
         }
 
         public static bool operator true(Fraction obj)
@@ -138,42 +142,37 @@ namespace overloads
             return obj.Num != 0;
         }
 
-        public static bool operator false(Fraction obj) // долженн возвращать истину когда фолс
+        // долженн возвращать истину когда фолс
+        public static bool operator false(Fraction obj)
         {
             return obj.Num == 0;
         }
 
-        public static Fraction operator &(Fraction obj_l, Fraction obj_r) // чтобы работало -нужно перегрузить тру и фолс , т.к. преобразует в конце к тру или фолсу
+        // чтобы работало -нужно перегрузить тру и фолс , т.к. преобразует в конце к тру или фолсу
+        public static Fraction operator &(Fraction left, Fraction right)
         {
-            return obj_l.Num != 0 && obj_r.Num != 0 ? obj_l : new Fraction();
+            return left.Num != 0 && right.Num != 0 ? left : new Fraction();
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------CONVERTING----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
 
+        #region Converters
 
-        /*//NOT GOOD
-        public static implicit operator double(Fraction obj)
+        public static implicit operator double(Fraction frac)
         {
-            return (double)obj.Num / obj.Denum;
-        }
-        */
-
-        public static explicit operator double(Fraction obj)
-        {
-            return (double)obj.Num / obj.Denum;
+            return (double)frac.Num / frac.Denum;
         }
 
         public static explicit operator Fraction(double val)
         {
+            // после точки
             int tmp_num = (int)((val - (int)val) * 100);
-            return new Fraction((int)val * 100+tmp_num, 100);
+            return new Fraction((int)val * 100 + tmp_num, 100);
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------CONSTRUCTORS----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
+
+        #region Ctors
 
         public Fraction() : this(0, 1) { }
         public Fraction(int num, int denum)
@@ -182,29 +181,34 @@ namespace overloads
             _denum = denum;
         }
 
-        //------------------------------------------------------------------------------------------------------------------------
-        //-----------------------------------------OVERRIDES----------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------
+        #endregion
 
-        public override bool Equals(object obj)// тоже что и ==
+        #region Object Overrides
+
+        // тоже что и ==
+        public override bool Equals(object obj)
         {
             if (obj == null)
                 return false;
+            if (Object.Equals(this, obj))
+                return true;
             if (obj is Fraction fraction)
                 return this == fraction;
             return false;
         }
 
-        public override int GetHashCode() // не может что у одного значения при разных вызовах - разные хеш коды
+        // не может быть, что у одного значения при разных вызовах - разные хеш коды
+        public override int GetHashCode()
         {
-            //return Num.GetHashCode() ^ Denum.GetHashCode(); // ^ - наложение маски , данный пример не будет различать переврнутые дроби 
+            // ^ - наложение маски , данный пример не будет различать переврнутые дроби 
+            //return Num.GetHashCode() ^ Denum.GetHashCode(); 
 
             return Num.GetHashCode() ^ Denum.GetHashCode() + Num / Denum;
         }
 
-        public override string ToString()
-        {
-            return $"{_num}/{_denum}";
-        }
+        public override string ToString() => $"{_num.ToString()}/{_denum.ToString()}";
+
+        #endregion
+
     }
 }

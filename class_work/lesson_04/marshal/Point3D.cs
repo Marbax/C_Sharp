@@ -21,8 +21,8 @@ namespace marshal
             Z += dist;
         }
 
-        public override string ToString() // варианты редактирования строки базового класса 
-                                          //( в данном случае обхода перехода на новую строку)
+        // варианты редактирования строки базового класса ( в данном случае обхода перехода на новую строку)
+        public override string ToString() 
         {
             return base.ToString().Substring(0, base.ToString().Length - 1) + $" Z: {Z}";
             //return base.ToString().TrimEnd('\n') + $" Z: {Z}";

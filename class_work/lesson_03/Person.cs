@@ -10,7 +10,7 @@ namespace lesson_03
     {
         private string _name;
         private readonly DateTime _birthday;
-        private static int _counter = 0;
+        private static int _counter = 0; // рання инициализация статического поля (зараннее , не перед первым вызовом типа)
         public const string Planet = "Earth";
 
 
@@ -22,7 +22,7 @@ namespace lesson_03
             set => _name = value;
         }
 
-        public static int Counter => _counter; // если только геттер или только сеттер
+        public static int Counter => _counter; // только геттер
 
         public DateTime Birthday => _birthday;
 
@@ -32,11 +32,11 @@ namespace lesson_03
         static Person()
         {
             Console.WriteLine("Static constructor"); // непонятно когда вызывается ,знает только CLR (где то перед созданием класса)
-            _counter = 0;
+            _counter = 0; // поздняя инициализация , прям перед первым вызовом типа
         }
 
-        public Person() : this("NONAME", DateTime.Now) // делегирование своему констроктору (текущее время ,до секунды)
-        {      }
+        public Person() : this("NONAME", DateTime.Now) {} // делегирование своему констроктору (текущее время ,до секунды)
+        
         public Person(string _name, DateTime birthday)
         {
             this._name = _name; // ссылка присваевается ссылке из вне она не поменяется ,т.к. строки неизменны

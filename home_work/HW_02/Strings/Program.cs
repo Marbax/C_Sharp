@@ -30,7 +30,8 @@ namespace Strings
             Console.WriteLine("2.Enter String => ");
             string str1 = Console.ReadLine();
             Console.WriteLine("Enter a character to find it in the string and delete everything after its last finding => ");
-            char chr = Char.Parse(Console.ReadLine());
+            //char chr = Char.Parse(Console.ReadLine());
+            char chr = Console.ReadKey();
             charToUpperAndRemoveEnd(ref str1, ref chr);
 
             /*
@@ -65,7 +66,7 @@ namespace Strings
 
         static void stringStatistick(ref string str)
         {
-            int spaces = 0, digits = 0, punctuations = 0, letters = 0, let_a_spa = 0;
+            int spaces = 0, digits = 0, punctuations = 0, letters = 0, lettersAndSpaces = 0;
             char[] buf = str.ToCharArray();
             char[] digits_arr = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             char[] punctuations_arr = new char[] { ',', '.', '\'', '\"', '\\','/',':',';','_','{','}',
@@ -85,10 +86,10 @@ namespace Strings
                     punctuations++;
                 }
             }
-            let_a_spa = str.Count() - digits - punctuations;
-            letters = let_a_spa - spaces;
+            lettersAndSpaces = str.Count() - digits - punctuations;
+            letters = lettersAndSpaces - spaces;
             Console.WriteLine($"symbols in string {str.Count()}\nspaces {spaces}");
-            Console.WriteLine($"digits {digits}\npunctuations {punctuations}\nletters {letters}\nletters and spaces {let_a_spa} ");
+            Console.WriteLine($"digits {digits}\npunctuations {punctuations}\nletters {letters}\nletters and spaces {lettersAndSpaces} ");
 
         }
 

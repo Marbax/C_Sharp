@@ -15,74 +15,74 @@
 
         class Complex
         {
-            //----------------------------------------------------------------------------------------
-            //--------------------------------------_PROPERTIES_--------------------------------------
-            //----------------------------------------------------------------------------------------
+            #region Props
 
-            private decimal _real_part;
+            private decimal _realPart;
 
             public decimal RealPart
             {
-                get { return _real_part; }
-                set { _real_part = value; }
+                get { return _realPart; }
+                set { _realPart = value; }
             }
 
-            private decimal _imag_part;
+            private decimal _imaginePart;
 
             public decimal ImaginaryPart
             {
-                get { return _imag_part; }
-                set { _imag_part = value; }
+                get { return _imaginePart; }
+                set { _imaginePart = value; }
             }
 
-            //----------------------------------------------------------------------------------------
-            //--------------------------------------_CONSTRUCTORS_------------------------------------
-            //----------------------------------------------------------------------------------------
+            #endregion
 
+            #region Ctors
             public Complex() : this(0, 0) { }
-            public Complex(decimal real_part = 0, decimal imag_part = 0)
+            public Complex(decimal realPart = 0, decimal imaginePart = 0)
             {
-                _real_part = real_part;
-                _imag_part = imag_part;
+                _realPart = realPart;
+                _imaginePart = imaginePart;
             }
 
-            //----------------------------------------------------------------------------------------
-            //----------------------------------_OVERRIDE_OPERATORS_----------------------------------
-            //----------------------------------------------------------------------------------------
+            #endregion
 
-            public static Complex operator +(Complex obj_l, Complex obj_r)
+
+            #region Operators Overrides
+            public static Complex operator +(Complex left, Complex right)
             {
-                return new Complex(obj_l._real_part + obj_r._real_part,
-                    obj_l._imag_part + obj_r._imag_part);
+                return new Complex(left._realPart + right._realPart,
+                    left._imaginePart + right._imaginePart);
             }
 
-            public static Complex operator -(Complex obj_l, Complex obj_r)
+            public static Complex operator -(Complex left, Complex right)
             {
-                return new Complex(obj_l._real_part - obj_r._real_part,
-                    obj_l._imag_part - obj_r._imag_part);
+                return new Complex(left._realPart - right._realPart,
+                    left._imaginePart - right._imaginePart);
             }
 
-            public static Complex operator *(Complex obj_l, Complex obj_r) // 7i^2 = -7
+            // 7i^2 = -7
+            public static Complex operator *(Complex left, Complex right)
             {
-                return new Complex(obj_l._real_part * obj_r._real_part - obj_l._imag_part * obj_r._imag_part,
-                    obj_l._imag_part * obj_r._real_part + obj_l._real_part * obj_r._imag_part);
+                return new Complex(left._realPart * right._realPart - left._imaginePart * right._imaginePart,
+                    left._imaginePart * right._realPart + left._realPart * right._imaginePart);
             }
 
-            public static Complex operator /(Complex obj_l, Complex obj_r)
+            public static Complex operator /(Complex left, Complex right)
             {
-                return new Complex((obj_l._real_part * obj_r._real_part + obj_l._imag_part * obj_r._imag_part) / (obj_r._real_part * obj_r._real_part + obj_r._imag_part * obj_r._imag_part)
-                    , (obj_l._imag_part * obj_r._real_part - obj_l._real_part * obj_r._imag_part) / (obj_r._real_part * obj_r._real_part + obj_r._imag_part * obj_r._imag_part));
+                return new Complex((left._realPart * right._realPart + left._imaginePart * right._imaginePart) / (right._realPart * right._realPart + right._imaginePart * right._imaginePart)
+                    , (left._imaginePart * right._realPart - left._realPart * right._imaginePart) / (right._realPart * right._realPart + right._imaginePart * right._imaginePart));
             }
 
-            public static bool operator ==(Complex obj_l, Complex obj_r)
+            public static bool operator ==(Complex left, Complex right)
             {
-                return obj_l._real_part == obj_r._real_part && obj_l._imag_part == obj_r._imag_part;
+                return left._realPart == right._realPart && left._imaginePart == right._imaginePart;
             }
 
-            public static bool operator !=(Complex obj_l, Complex obj_r)
+            public static bool operator !=(Complex left, Complex right)
             {
-                return !(obj_l == obj_r);
+                return !(left == right);
             }
+
+            #endregion
 
             //-------------------------------------------------------------------------------------------
             //----------------------------------------_CONVERTING_---------------------------------------
@@ -96,9 +96,9 @@
 
             public override string ToString()
             {
-                string output = $"{_real_part}";
-                output += _imag_part < 0 ? " - " : " + ";
-                return output + _imag_part;
+                string output = $"{_realPart}";
+                output += _imaginePart < 0 ? " - " : " + ";
+                return output + _imaginePart;
             }
 
             public override bool Equals(object obj)
@@ -110,7 +110,7 @@
                 return false;
             }
 
-            public override int GetHashCode() { return _real_part.GetHashCode() ^ _imag_part.GetHashCode(); }
+            public override int GetHashCode() { return _realPart.GetHashCode() ^ _imaginePart.GetHashCode(); }
 
         }
     }

@@ -23,7 +23,9 @@ namespace auto
         Например: 
             auto a = new auto(10), b = new auto(“120”), c;
             c = a + b;
-            Console.WriteLine(c); // Выведет 130  c = b + a; Console.WriteLine(c); // Выведет “12010” 
+            Console.WriteLine(c); // Выведет 130  
+            c = b + a; 
+            Console.WriteLine(c); // Выведет “12010” 
 
         Для типа Строка операция * должна возвращать новую строку, состоящую только из символов первой строки, которые есть во второй строке, 
         например:
@@ -48,73 +50,73 @@ namespace auto
             STRING
         };
 
-        //----------------------------------------------------------------------------------------
-        //--------------------------------------_PROPERTIES_--------------------------------------
-        //----------------------------------------------------------------------------------------
 
+
+        #region Props
         DataType _data_type;
 
-        int _int_val;
-        double _double_val;
-        string _string_val;
+        int _intVal;
+        double _doubleVal;
+        string _stringVal;
+
+        #endregion
 
 
-        //----------------------------------------------------------------------------------------
-        //--------------------------------------_CONSTRUCTORS_------------------------------------
-        //----------------------------------------------------------------------------------------
 
+        #region Ctors
         public auto(int val)
         {
             _data_type = DataType.INT;
-            _int_val = val;
+            _intVal = val;
         }
 
         public auto(double val)
         {
             _data_type = DataType.DOUBLE;
-            _double_val = val;
+            _doubleVal = val;
         }
 
         public auto(string val)
         {
             _data_type = DataType.STRING;
-            _string_val = val;
+            _stringVal = val;
         }
 
-        //----------------------------------------------------------------------------------------
-        //----------------------------------_OVERRIDE_ARIFMET_OPERATORS_--------------------------
-        //----------------------------------------------------------------------------------------
+        #endregion
 
-        public static auto operator +(auto obj_l, auto obj_r)
+
+
+        #region Arithmetic Opetaions Overrides
+        public static auto operator +(auto left, auto right)
         {
-            if (obj_l._data_type == DataType.INT)
-                return new auto(obj_l._int_val + (int)obj_r);
-            if (obj_l._data_type == DataType.DOUBLE)
-                return new auto(obj_l._double_val + (double)obj_r);
-            return new auto(obj_l._string_val + (string)obj_r);
+            if (left._data_type == DataType.INT)
+                return new auto(left._intVal + (int)right);
+            if (left._data_type == DataType.DOUBLE)
+                return new auto(left._doubleVal + (double)right);
+            return new auto(left._stringVal + (string)right);
 
         }
 
-        public static auto operator -(auto obj_l, auto obj_r)
+        public static auto operator -(auto left, auto right)
         {
-            if (obj_l._data_type == DataType.INT)
-                return new auto(obj_l._int_val - (int)obj_r);
-            if (obj_l._data_type == DataType.DOUBLE)
-                return new auto(obj_l._double_val - (double)obj_r);
-            return new auto(obj_l._string_val.Replace(obj_l._string_val, (string)obj_r));
+            if (left._data_type == DataType.INT)
+                return new auto(left._intVal - (int)right);
+            if (left._data_type == DataType.DOUBLE)
+                return new auto(left._doubleVal - (double)right);
+            return new auto(left._stringVal.Replace(left._stringVal, (string)right));
         }
 
-        public static auto operator *(auto obj_l, auto obj_r)
+        public static auto operator *(auto left, auto right)
         {
-            if (obj_l._data_type == DataType.INT)
-                return new auto(obj_l._int_val * (int)obj_r);
-            if (obj_l._data_type == DataType.DOUBLE)
-                return new auto(obj_l._double_val * (double)obj_r);
+            if (left._data_type == DataType.INT)
+                return new auto(left._intVal * (int)right);
+            if (left._data_type == DataType.DOUBLE)
+                return new auto(left._doubleVal * (double)right);
 
             StringBuilder tmp = new StringBuilder();
-            foreach (var item in (string)obj_l)
+            foreach (var item in (string)left)
             {
-                if (obj_r.ToString().Contains(item))
+                if (right.ToString().Contains(item))
                 {
                     tmp.Append(item);
                 }
@@ -122,17 +124,17 @@ namespace auto
             return new auto(tmp.ToString());
         }
 
-        public static auto operator /(auto obj_l, auto obj_r)
+        public static auto operator /(auto left, auto right)
         {
-            if (obj_l._data_type == DataType.INT)
-                return new auto(obj_l._int_val / (int)obj_r);
-            if (obj_l._data_type == DataType.DOUBLE)
-                return new auto(obj_l._double_val / (double)obj_r);
+            if (left._data_type == DataType.INT)
+                return new auto(left._intVal / (int)right);
+            if (left._data_type == DataType.DOUBLE)
+                return new auto(left._doubleVal / (double)right);
 
             StringBuilder tmp = new StringBuilder();
-            foreach (var item in (string)obj_l)
+            foreach (var item in (string)left)
             {
-                if (!obj_r.ToString().Contains(item))
+                if (!right.ToString().Contains(item))
                 {
                     tmp.Append(item);
                 }
@@ -140,99 +142,103 @@ namespace auto
             return new auto(tmp.ToString());
         }
 
-        //----------------------------------------------------------------------------------------
-        //----------------------------------_OVERRIDE_LOGIC_OPERATORS_----------------------------
-        //----------------------------------------------------------------------------------------
+        #endregion
 
-        public static bool operator ==(auto obj_l, auto obj_r)
+
+
+        #region Logic Operations Ovverides
+        public static bool operator ==(auto left, auto right)
         {
-            if (obj_l._data_type == DataType.INT)
-                return obj_l._int_val == (int)obj_r;
-            if (obj_l._data_type == DataType.DOUBLE)
-                return obj_l._double_val == (double)obj_r;
-            return obj_l._string_val == (string)obj_r;
+            if (left._data_type == DataType.INT)
+                return left._intVal == (int)right;
+            if (left._data_type == DataType.DOUBLE)
+                return left._doubleVal == (double)right;
+            return left._stringVal == (string)right;
         }
 
-        public static bool operator !=(auto obj_l, auto obj_r)
+        public static bool operator !=(auto left, auto right)
         {
-            return !(obj_l == obj_r);
+            return !(left == right);
         }
 
-        public static bool operator >(auto obj_l, auto obj_r)
+        public static bool operator >(auto left, auto right)
         {
-            if (obj_l._data_type == DataType.INT)
-                return obj_l._int_val > (int)obj_r;
-            if (obj_l._data_type == DataType.DOUBLE)
-                return obj_l._double_val > (double)obj_r;
-            return obj_l._string_val.Length > obj_r.ToString().Length;
+            if (left._data_type == DataType.INT)
+                return left._intVal > (int)right;
+            if (left._data_type == DataType.DOUBLE)
+                return left._doubleVal > (double)right;
+            return left._stringVal.Length > right.ToString().Length;
 
         }
 
-        public static bool operator <(auto obj_l, auto obj_r)
+        public static bool operator <(auto left, auto right)
         {
-            return !(obj_l > obj_r || obj_l == obj_r);
+            return !(left > right || left == right);
         }
 
-        public static bool operator >=(auto obj_l, auto obj_r)
+        public static bool operator >=(auto left, auto right)
         {
-            return obj_l > obj_r || obj_l == obj_r;
+            return left > right || left == right;
         }
 
-        public static bool operator <=(auto obj_l, auto obj_r)
+        public static bool operator <=(auto left, auto right)
         {
-            return !(obj_l > obj_r);
+            return !(left > right);
         }
 
-        //-------------------------------------------------------------------------------------------
-        //----------------------------------------_CONVERTING_---------------------------------------
-        //-------------------------------------------------------------------------------------------
+        #endregion
 
+
+
+        #region Converters
         public static explicit operator int(auto obj)
         {
             if (obj._data_type == DataType.DOUBLE)
-                return (int)obj._double_val;
+                return (int)obj._doubleVal;
             if (obj._data_type == DataType.STRING)
             {
                 int tmp;
-                int.TryParse(obj._string_val, out tmp);
+                int.TryParse(obj._stringVal, out tmp);
                 return tmp;
             }
-            return obj._int_val;
+            return obj._intVal;
         }
 
         public static explicit operator double(auto obj)
         {
             if (obj._data_type == DataType.INT)
-                return (double)obj._int_val;
+                return (double)obj._intVal;
             if (obj._data_type == DataType.STRING)
             {
                 double tmp;
-                double.TryParse(obj._string_val, out tmp);
+                double.TryParse(obj._stringVal, out tmp);
                 return tmp;
             }
-            return obj._double_val;
+            return obj._doubleVal;
         }
 
         public static explicit operator string(auto obj)
         {
             if (obj._data_type == DataType.INT)
-                return obj._int_val.ToString();
+                return obj._intVal.ToString();
             if (obj._data_type == DataType.DOUBLE)
-                return obj._double_val.ToString();
-            return obj._string_val;
+                return obj._doubleVal.ToString();
+            return obj._stringVal;
         }
 
-        //----------------------------------------------------------------------------------------
-        //----------------------------------_OVERRIDE_METHODS_------------------------------------
-        //----------------------------------------------------------------------------------------
+        #endregion
+
+
+
+        #region Object Overrides
 
         public override string ToString()
         {
             if (_data_type == DataType.INT)
-                return _int_val.ToString();
+                return _intVal.ToString();
             if (_data_type == DataType.DOUBLE)
-                return _double_val.ToString();
-            return _string_val;
+                return _doubleVal.ToString();
+            return _stringVal;
         }
 
         public override bool Equals(object obj)
@@ -247,10 +253,12 @@ namespace auto
         public override int GetHashCode()
         {
             if (_data_type == DataType.INT)
-                return _int_val.GetHashCode() ^ _data_type.GetHashCode();
+                return _intVal.GetHashCode() ^ _data_type.GetHashCode();
             if (_data_type == DataType.DOUBLE)
-                return _double_val.GetHashCode() ^ _data_type.GetHashCode();
-            return _string_val.GetHashCode() ^ _data_type.GetHashCode();
+                return _doubleVal.GetHashCode() ^ _data_type.GetHashCode();
+            return _stringVal.GetHashCode() ^ _data_type.GetHashCode();
         }
+
+        #endregion
     }
 }

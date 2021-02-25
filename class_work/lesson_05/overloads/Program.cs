@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace overloads
 {
@@ -27,8 +23,10 @@ namespace overloads
             Console.WriteLine(a.GetHashCode());
             Console.WriteLine(b.GetHashCode());
 
-            // если стоит implicit преобразование
-            Console.WriteLine(a); // сначала пытается преобразовать к стандартному типу , поэтому и дабл выводит, имплисит - зло
+            Console.WriteLine(a.ToString());
+
+            double d = a;
+            Console.WriteLine(d);
 
             Console.WriteLine((float)a);
             Fraction ss = (Fraction)0.67;
